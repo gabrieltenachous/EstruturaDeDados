@@ -13,9 +13,14 @@ public class Vetor<T> {
     public Vetor(int capacidade) {
         this.elementos = new Object[capacidade];
     }
-
-    public void inserirEn(int posicao, T elementos) {
-        this.elementos[posicao] = elementos;
+    public Vetor(){
+        this.elementos = new Object[3];
+    }
+    public void inserirEn(int posicao, T elemento) {
+        if(this.elementos.length<posicao){
+            throw new IllegalArgumentException(String.format("Posicao é invalida[%d]",posicao));
+        }
+        this.elementos[posicao] = elemento;
     }
 
     @SuppressWarnings("unchecked")

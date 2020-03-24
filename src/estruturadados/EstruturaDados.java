@@ -29,7 +29,7 @@ public class EstruturaDados {
         Vetor<Pessoa> vetorPessoa = new Vetor(3);
         vetorPessoa.inserirEn(0, new Pessoa(0, "Treina"));
         System.out.println(vetorPessoa.recuperar(0).getNome());
-        Vetor<Integer> vetorInteiros = new  Vetor<Integer>(2);
+        Vetor<Integer> vetorInteiros = new Vetor<>(2);
         vetorInteiros.inserirEn(0, 1);
         System.out.println(vetorInteiros.recuperar(0));
     }
