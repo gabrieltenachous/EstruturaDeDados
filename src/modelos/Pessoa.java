@@ -70,7 +70,6 @@ public class Pessoa {
         return Objects.equals(this.nome, other.nome);
     }
 
-    
     @Override
     public String toString() {
         return "Pessoa{" + "id=" + id + ", nome=" + nome + '}';

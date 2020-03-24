@@ -8,6 +8,7 @@ public class EstruturaDados {
     public static void main(String[] args) {
         System.out.println("Digite opção desejkada");
         System.out.println("1. Gerenciamento de memoria: ");
+        System.out.println("2. Vetores: ");
         Scanner scanf = new Scanner(System.in);
         int opcao = scanf.nextInt();
 
@@ -15,11 +16,22 @@ public class EstruturaDados {
             case 1:
                 fazerGerenciamentoMemoria();
                 break;
+            case 2:
+                fazerVetor();
+                break;
         }
         scanf.close();
 
     }
-
+    private static void fazerVetor(){
+        Pessoa[] vetorPessoas = new Pessoa[3];
+        vetorPessoas[0] = new Pessoa(1, "TreinaWeb");
+        System.out.println(vetorPessoas[0].getNome());
+        //System.out.println(vetorPessoas[1].getNome());
+        int[] vetorInteiros = new int[3];
+        System.out.println(vetorInteiros[0]);
+    
+    }
     private static void fazerGerenciamentoMemoria() {
         int a = 3;
         System.out.println(a);
