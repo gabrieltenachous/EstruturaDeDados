@@ -2,6 +2,7 @@ package estruturadados;
 
 import java.util.Scanner;
 import modelos.Pessoa;
+import vetores.Vetor;
 
 public class EstruturaDados {
 
@@ -21,16 +22,12 @@ public class EstruturaDados {
                 break;
         }
         scanf.close();
-
+        
     }
     private static void fazerVetor(){
-        Pessoa[] vetorPessoas = new Pessoa[3];
-        vetorPessoas[0] = new Pessoa(1, "TreinaWeb");
-        System.out.println(vetorPessoas[0].getNome());
-        //System.out.println(vetorPessoas[1].getNome());
-        int[] vetorInteiros = new int[3];
-        System.out.println(vetorInteiros[0]);
-    
+        Vetor vetorPessoas= new Vetor(3);
+        vetorPessoas.inserirEn(0, new Pessoa(1, "TreinaWeb"));
+        System.out.println(vetorPessoas.recupera(0));
     }
     private static void fazerGerenciamentoMemoria() {
         int a = 3;
