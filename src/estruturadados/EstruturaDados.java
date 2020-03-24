@@ -10,10 +10,10 @@ public class EstruturaDados {
         System.out.println("1. Gerenciamento de memoria: ");
         Scanner scanf = new Scanner(System.in);
         int opcao = scanf.nextInt();
-        
+
         switch (opcao) {
             case 1:
-                fazerGerenciamentoMemoria();    
+                fazerGerenciamentoMemoria();
                 break;
         }
         scanf.close();
@@ -21,7 +21,7 @@ public class EstruturaDados {
     }
 
     private static void fazerGerenciamentoMemoria() {
-        int a = 3;  
+        int a = 3;
         System.out.println(a);
         int b = a;
         System.out.println(b);
@@ -29,15 +29,19 @@ public class EstruturaDados {
         System.out.println("--------");
         System.out.println(b);
         System.out.println(a == b);
-        
+
         System.out.println("=========");
-        Pessoa p1 = new Pessoa(1,"TreinaWeb");
+        Pessoa p1 = new Pessoa(1, "TreinaWeb");
         System.out.println(p1.toString());
-        Pessoa p2 = p1;
+        Pessoa p2 = new Pessoa(1, "TreinaWeb");
+
         System.out.println(p2.toString());
-        p2.setNome("TreinaWeb Modificado");
+        p2.setNome("TreinaWeb");
         System.out.println(p1.toString());
         System.out.println(p2.toString());
-        System.out.println(p1 == p2);
+        //Comeca a deixa de comparar a memoria
+        //e compara o conteudo
+        System.out.println(p1.equals(p2));
+
     }
 }

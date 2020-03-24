@@ -5,6 +5,8 @@
  */
 package modelos;
 
+import java.util.Objects;
+
 /**
  *
  * @author gabri
@@ -47,6 +49,28 @@ public class Pessoa {
         this.nome = nome;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Pessoa other = (Pessoa) obj;
+        if (this.id != other.id) {
+            return false;
+        }
+        return Objects.equals(this.nome, other.nome);
+    }
+
+    
     @Override
     public String toString() {
         return "Pessoa{" + "id=" + id + ", nome=" + nome + '}';
