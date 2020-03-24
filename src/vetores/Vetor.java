@@ -4,24 +4,23 @@
  * and open the template in the editor.
  */
 package vetores;
-
 import modelos.Pessoa;
 
-/**
- *
- * @author gabri
- */
-public class Vetor {
+public class Vetor<T> {
 
-    private Pessoa[] pessoas;
+    private Object[] elementos;
 
     public Vetor(int capacidade) {
-        this.pessoas = new Pessoa[capacidade];
+        this.elementos = new Object[capacidade];
     }
-    public void inserirEn(int posicao,Pessoa pessoa){
-        this.pessoas[posicao] = pessoa;
+
+    public void inserirEn(int posicao, T elementos) {
+        this.elementos[posicao] = elementos;
     }
-    public Pessoa recupera(int posicao){
-        return this.pessoas[posicao];
+
+    @SuppressWarnings("unchecked")
+    public T recuperar(int posicao) {
+        return  (T)this.elementos[posicao];
     }
+
 }

@@ -10,25 +10,30 @@ public class EstruturaDados {
         System.out.println("Digite opção desejkada");
         System.out.println("1. Gerenciamento de memoria: ");
         System.out.println("2. Vetores: ");
-        Scanner scanf = new Scanner(System.in);
-        int opcao = scanf.nextInt();
+        try (Scanner scanf = new Scanner(System.in)) {
+            int opcao = scanf.nextInt();
 
-        switch (opcao) {
-            case 1:
-                fazerGerenciamentoMemoria();
-                break;
-            case 2:
-                fazerVetor();
-                break;
+            switch (opcao) {
+                case 1:
+                    fazerGerenciamentoMemoria();
+                    break;
+                case 2:
+                    fazerVetor();
+                    break;
+            }
         }
-        scanf.close();
-        
+
     }
-    private static void fazerVetor(){
-        Vetor vetorPessoas= new Vetor(3);
-        vetorPessoas.inserirEn(0, new Pessoa(1, "TreinaWeb"));
-        System.out.println(vetorPessoas.recupera(0));
+
+    private static void fazerVetor() {
+        Vetor<Pessoa> vetorPessoa = new Vetor(3);
+        vetorPessoa.inserirEn(0, new Pessoa(0, "Treina"));
+        System.out.println(vetorPessoa.recuperar(0).getNome());
+        Vetor<Integer> vetorInteiros = new  Vetor<Integer>(2);
+        vetorInteiros.inserirEn(0, 1);
+        System.out.println(vetorInteiros.recuperar(0));
     }
+
     private static void fazerGerenciamentoMemoria() {
         int a = 3;
         System.out.println(a);
