@@ -5,7 +5,7 @@
  */
 package vetores;
 
-import java.util.Arrays; 
+import java.util.Arrays;
 
 public class Vetor<T> {
 
@@ -46,6 +46,8 @@ public class Vetor<T> {
             this.elementos = new Object[novoTamanho];
             System.arraycopy(arrayInicio, 0, this.elementos, 0, arrayInicio.length);
             System.arraycopy(arrayFinal, 0, this.elementos, arrayInicio.length, arrayFinal.length);
+            this.posicao++;
+
         } else {
             this.elementos[posicao] = elemento;
         }
@@ -75,13 +77,34 @@ public class Vetor<T> {
     }
 
     public int indice(T elemento) {
-        for(int i=0;i<tamanho();i++){
+        for (int i = 0; i < tamanho(); i++) {
             T elem = recuperar(i);
-            if(elem != null && elem.equals(elemento)){
+            if (elem != null && elem.equals(elemento)) {
                 return i;
             }
         }
         return -1;
+    }
+
+    public void remover(int posicao) {
+        if (posicao >= tamanho()) {
+            throw new IllegalArgumentException(String.format("Posicao invalida [%d]", posicao));
+        }
+        Object[] arrayFinal = Arrays.copyOfRange(this.elementos, posicao + 1, tamanho());
+        Object[] arrayInicio = Arrays.copyOfRange(this.elementos, 0, posicao);
+        this.elementos = new Object[tamanho() - 1];
+        this.posicao--;
+        System.arraycopy(arrayInicio, 0, this.elementos, 0, arrayInicio.length);
+        System.arraycopy(arrayFinal, 0, this.elementos, arrayInicio.length, arrayFinal.length);
+
+    }
+
+    public void remover(T elemento) {
+        int posicao = indice(elemento);
+        if (posicao >= tamanho() || posicao == -1) {
+            throw new IllegalArgumentException("Elemento invalido -"+elemento.toString());
+        }
+        remover(posicao);
     }
 
     @Override
