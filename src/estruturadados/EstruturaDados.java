@@ -27,13 +27,16 @@ public class EstruturaDados {
 
     private static void fazerVetor() {
         Vetor<Pessoa> vetorPessoa = new Vetor(3);
-        vetorPessoa.inserir(new Pessoa(1, "treinaWeb"));
-        vetorPessoa.inserir(new Pessoa(2, "treinaWeb"));
-        vetorPessoa.inserir(new Pessoa(3, "treinaWeb"));
-        vetorPessoa.inserir(new Pessoa(4, "treinaWeb"));
-
-        vetorPessoa.inserirEn(1,new Pessoa(5, "treinaWeb"));
+        vetorPessoa.inserir(new Pessoa(1, "treinaWeb 1"));
+        vetorPessoa.inserir(new Pessoa(2, "treinaWeb 2"));
+        vetorPessoa.inserir(new Pessoa(3, "treinaWeb 3"));
+        vetorPessoa.inserir(new Pessoa(4, "treinaWeb 4"));
+        vetorPessoa.inserirEn(1, new Pessoa(5, "treinaWeb 5"));
         System.out.println(vetorPessoa);
+        System.out.println("Lista de pessoas: ");
+        for (int i = 0; i < vetorPessoa.tamanho(); i++) {
+            System.out.println(vetorPessoa.recuperar(i).getNome());
+        }
     }
 
     private static void fazerGerenciamentoMemoria() {

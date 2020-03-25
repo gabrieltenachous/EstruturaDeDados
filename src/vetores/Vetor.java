@@ -46,7 +46,7 @@ public class Vetor<T> {
             int novoTamanho = arrayFinal.length + arrayInicio.length;
             this.elementos = new Object[novoTamanho];
             System.arraycopy(arrayInicio, 0, this.elementos, 0, arrayInicio.length);
-            System.arraycopy(arrayFinal,0, this.elementos, arrayInicio.length, arrayFinal.length);
+            System.arraycopy(arrayFinal, 0, this.elementos, arrayInicio.length, arrayFinal.length);
         } else {
             this.elementos[posicao] = elemento;
         }
@@ -55,10 +55,16 @@ public class Vetor<T> {
 
     @SuppressWarnings("unchecked")
     public T recuperar(int posicao) {
+        if(posicao >= tamanho()){
+            throw new IllegalArgumentException(String.format("Acesso do vetor invalido: [%d]",posicao));
+        }
         return (T) this.elementos[posicao];
     }
 
-    
+    public int tamanho() {
+        return this.elementos.length;
+    }
+
     @Override
     public String toString() {
         return "Vetor{" + "elementos=" + Arrays.toString(elementos) + '}';
