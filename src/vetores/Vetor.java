@@ -5,8 +5,7 @@
  */
 package vetores;
 
-import java.util.Arrays;
-import modelos.Pessoa;
+import java.util.Arrays; 
 
 public class Vetor<T> {
 
@@ -55,14 +54,34 @@ public class Vetor<T> {
 
     @SuppressWarnings("unchecked")
     public T recuperar(int posicao) {
-        if(posicao >= tamanho()){
-            throw new IllegalArgumentException(String.format("Acesso do vetor invalido: [%d]",posicao));
+        if (posicao >= tamanho()) {
+            throw new IllegalArgumentException(String.format("Acesso do vetor invalido: [%d]", posicao));
         }
         return (T) this.elementos[posicao];
     }
 
     public int tamanho() {
         return this.elementos.length;
+    }
+
+    public boolean contem(T elemento) {
+        for (int i = 0; i < tamanho(); i++) {
+            T elem = recuperar(i);
+            if (elem != null && elem.equals(elemento)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public int indice(T elemento) {
+        for(int i=0;i<tamanho();i++){
+            T elem = recuperar(i);
+            if(elem != null && elem.equals(elemento)){
+                return i;
+            }
+        }
+        return -1;
     }
 
     @Override

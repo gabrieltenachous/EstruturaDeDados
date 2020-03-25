@@ -37,8 +37,15 @@ public class EstruturaDados {
         for (int i = 0; i < vetorPessoa.tamanho(); i++) {
             System.out.println(vetorPessoa.recuperar(i).getNome());
         }
+        Pessoa p = vetorPessoa.recuperar(1);
+        Pessoa pessoaErrada = new Pessoa(100,"TreinaWeb 100");
+        System.out.println("********** Pessoa Errada");
+        System.out.println(vetorPessoa.contem(pessoaErrada));
+        System.out.println(vetorPessoa.indice(p));
+        System.out.println(vetorPessoa.indice(pessoaErrada));
     }
-
+    
+    
     private static void fazerGerenciamentoMemoria() {
         int a = 3;
         System.out.println(a);
