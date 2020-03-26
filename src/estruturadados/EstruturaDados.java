@@ -1,5 +1,6 @@
 package estruturadados;
 
+import estruturadadolistaligada.ListaLigada;
 import java.util.Scanner;
 import modelos.Pessoa;
 import vetores.Vetor;
@@ -10,6 +11,7 @@ public class EstruturaDados {
         System.out.println("Digite opção desejkada");
         System.out.println("1. Gerenciamento de memoria: ");
         System.out.println("2. Vetores: ");
+        System.out.println("3 Lista ligada: ");
         try (Scanner scanf = new Scanner(System.in)) {
             int opcao = scanf.nextInt();
 
@@ -19,6 +21,9 @@ public class EstruturaDados {
                     break;
                 case 2:
                     fazerVetor();
+                    break;
+                case 3:
+                    fazerListaLigada();
                     break;
             }
         }
@@ -74,5 +79,12 @@ public class EstruturaDados {
         //e compara o conteudo
         System.out.println(p1.equals(p2));
 
+    }
+
+    private static void fazerListaLigada() {
+        ListaLigada<Pessoa> listaPessoa= new ListaLigada<Pessoa>();
+        listaPessoa.inserir(new Pessoa(1, "TreinaWeb"));
+        listaPessoa.inserir(new Pessoa(2 , "TreinaWeb"));
+        System.out.println(listaPessoa.toString());
     }
 }

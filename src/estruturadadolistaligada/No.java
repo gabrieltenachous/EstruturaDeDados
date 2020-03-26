@@ -11,8 +11,23 @@ package estruturadadolistaligada;
  * @param <T>
  */
 public class No<T> {
+
     private T elemento;
     private No<T> proximo;
+
+    public No() {
+        this.proximo = null;
+    }
+
+    public No(T elemento, No<T> proximo) {
+        this.elemento = elemento;
+        this.proximo = proximo;
+    }
+
+    public No(T elemento) {
+        this.elemento = elemento;
+        
+    }
 
     /**
      * @return the elemento
@@ -41,6 +56,5 @@ public class No<T> {
     public void setProximo(No<T> proximo) {
         this.proximo = proximo;
     }
-    
-    
+
 }
